@@ -1,16 +1,21 @@
 <?php
 require_once 'config.php';
-
+ 
+// Si la petición viene del formulario principal vía fetch (AJAX),
+// respondemos solo con JSON y terminamos
+$es_ajax = isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 
+           strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
+ 
 $mensaje_ok = '';
 $error      = '';
-
+ 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre   = trim($_POST['nombre']   ?? '');
     $email    = trim($_POST['email']    ?? '');
     $telefono = trim($_POST['telefono'] ?? '');
     $asunto   = trim($_POST['asunto']   ?? '');
     $mensaje  = trim($_POST['mensaje']  ?? '');
-
+ 
     if (!$nombre || !$email || !$asunto || !$mensaje) {
         $error = 'Todos los campos obligatorios deben completarse.';
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -21,14 +26,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             "INSERT INTO contactos (nombre, email, telefono, asunto, mensaje) VALUES (?, ?, ?, ?, ?)"
         );
         $stmt->bind_param('sssss', $nombre, $email, $telefono, $asunto, $mensaje);
-
+ 
         if ($stmt->execute()) {
-            $mensaje_ok = "✅ Contacto guardado con ID: " . $conn->insert_id;
+            $mensaje_ok = "Contacto guardado con ID: " . $conn->insert_id;
         } else {
             $error = 'Error al guardar: ' . $stmt->error;
         }
         $stmt->close();
         $conn->close();
+    }
+ 
+    // Si es una petición AJAX, devolver JSON y salir
+    if ($es_ajax) {
+        header('Content-Type: application/json');
+        if ($mensaje_ok) {
+            echo json_encode(['ok' => true, 'mensaje' => $mensaje_ok]);
+        } else {
+            echo json_encode(['ok' => false, 'error' => $error]);
+        }
+        exit;
     }
 }
 ?>
@@ -51,20 +67,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
   <h2>➕ Insertar contacto de prueba</h2>
-
-  <?php if ($mensaje_ok): ?><p class="ok"><?= $mensaje_ok ?></p><?php endif; ?>
-  <?php if ($error):      ?><p class="err"><?= htmlspecialchars($error) ?></p><?php endif; ?>
-
+ 
+  <?php if ($mensaje_ok): ?><p class="ok">✅ <?= htmlspecialchars($mensaje_ok) ?></p><?php endif; ?>
+  <?php if ($error):      ?><p class="err">❌ <?= htmlspecialchars($error) ?></p><?php endif; ?>
+ 
   <form method="POST">
     <label>Nombre *</label>
     <input type="text" name="nombre" required />
-
+ 
     <label>Email *</label>
     <input type="email" name="email" required />
-
+ 
     <label>Teléfono</label>
     <input type="tel" name="telefono" />
-
+ 
     <label>Asunto *</label>
     <select name="asunto" required>
       <option value="">-- Selecciona --</option>
@@ -73,13 +89,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <option value="academico">Información académica</option>
       <option value="otro">Otro</option>
     </select>
-
+ 
     <label>Mensaje *</label>
     <textarea name="mensaje" rows="4" required></textarea>
-
+ 
     <button type="submit">Guardar en BD</button>
   </form>
-
+ 
   <a href="ver_contactos.php">← Ver todos los contactos</a>
 </body>
 </html>
