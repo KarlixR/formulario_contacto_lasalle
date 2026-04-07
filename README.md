@@ -17,60 +17,22 @@ formulario_contacto_lasalle/
     └── insertar.php        → Inserta nuevos registros (INSERT)
 ```
 
----
+## Cambios realizados
 
-## Parte 1 – Publicar la aplicación web (dominio público gratis)
+### Commit 1 - Conexión formulario con backend PHP
 
-### Opción recomendada: Netlify Drop (sin cuenta)
-1. Ve a https://app.netlify.com/drop
-2. Arrastra la carpeta `formulario_contacto_lasalle/` (solo los archivos HTML/CSS/JS, **sin la carpeta php**)
-3. Netlify genera automáticamente una URL pública tipo `https://nombre-aleatorio.netlify.app`
-4. Comparte esa URL con el profesor
-
-### Opción alternativa: GitHub Pages
-1. Crea un repositorio en GitHub
-2. Sube los archivos HTML/CSS/JS
-3. Ve a Settings → Pages → Branch: main → Save
-4. URL: `https://tu-usuario.github.io/nombre-repo`
-
----
-
-## Parte 2 – Ambiente de pruebas con XAMPP
-
-### Paso 1: Instalar y abrir XAMPP
-1. Descarga XAMPP desde https://www.apachefriends.org
-2. Abre XAMPP Control Panel
-3. Inicia los módulos **Apache** y **MySQL**
-
-### Paso 2: Crear la base de datos
-1. Abre el navegador y ve a http://localhost/phpmyadmin
-2. Haz clic en **SQL** (pestaña superior)
-3. Pega el contenido de `php/setup.sql` y ejecuta
-4. Esto crea la base de datos `lasalle_pruebas`, la tabla `contactos` e inserta 3 registros de prueba
-
-### Paso 3: Copiar los archivos PHP
-1. Copia la carpeta `formulario_contacto_lasalle/` dentro de:
-   ```
-   C:\xampp\htdocs\formulario_contacto_lasalle\
-   ```
-
-### Paso 4: Probar en el navegador
-
-| URL | Descripción |
-|-----|-------------|
-| `http://localhost/formulario_contacto_lasalle/index.html` | Página principal |
-| `http://localhost/formulario_contacto_lasalle/contacto.html` | Formulario de contacto |
-| `http://localhost/formulario_contacto_lasalle/php/ver_contactos.php` | Ver registros de la BD (SELECT) |
-| `http://localhost/formulario_contacto_lasalle/php/insertar.php` | Insertar nuevo contacto (INSERT) |
-
-### Paso 5: Verificar el flujo completo
-1. Abre `ver_contactos.php` → debe mostrar los 3 registros del `setup.sql`
-2. Abre `insertar.php` → llena el formulario y guarda
-3. Vuelve a `ver_contactos.php` → el nuevo registro debe aparecer
+- Se modificó `js/validacion.js` para enviar los datos del
+  formulario al servidor usando `fetch` en lugar de solo
+  mostrar un mensaje visual.
+- Se modificó `php/insertar.php` para responder en formato
+  JSON cuando recibe una petición desde el formulario.
+- Ahora los datos del formulario se guardan correctamente
+  en la base de datos.
 
 ---
 
 ## Tecnologías utilizadas
+
 - HTML5, CSS3, JavaScript (vanilla)
 - PHP 8 + MySQLi
 - MySQL (via XAMPP)
