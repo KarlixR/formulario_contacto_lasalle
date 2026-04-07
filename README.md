@@ -17,6 +17,12 @@ formulario_contacto_lasalle/
     └── insertar.php        → Inserta nuevos registros (INSERT)
 ```
 
+## 🌐 Sitio web publicado
+
+- **Página principal:** https://la-salle-contacto.infinityfreeapp.com/index.html
+- **Formulario de contacto:** https://la-salle-contacto.infinityfreeapp.com/contacto.html
+- **Ver contactos registrados:** https://la-salle-contacto.infinityfreeapp.com/php/ver_contactos.php
+
 ## Cambios realizados
 
 ### Commit 1 - Conexión formulario con backend PHP
