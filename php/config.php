@@ -1,10 +1,9 @@
 <?php
 // Configuración de conexión a la base de datos
-// Ajusta estos valores según tu instalación de XAMPP
-define('DB_HOST', 'lasallecontacto.infinityfreeapp.com');
-define('DB_USER', 'if0_41434691');
-define('DB_PASS', 'IngSoftware2026');          // XAMPP por defecto no tiene contraseña
-define('DB_NAME', 'if0_41434691');
+define('DB_HOST', 'sql102.infinityfree.com');
+define('DB_USER', 'if0_41596719');
+define('DB_PASS', 'VWrVejVSWya');
+define('DB_NAME', 'if0_41596719_contactos');
 
 function conectar() {
     $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
