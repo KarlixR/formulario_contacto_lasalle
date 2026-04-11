@@ -43,3 +43,4 @@ formulario_contacto_lasalle/
 - PHP 8 + MySQLi
 - MySQL (via XAMPP)
 - Netlify / GitHub Pages (despliegue)
+- GitHub
