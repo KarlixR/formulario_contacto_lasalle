@@ -5,50 +5,57 @@
 ```
 formulario_contacto_lasalle/
 ├── index.html          → Página principal
-├── contacto.html       → Formulario de contacto
+├── contacto.php        → Formulario de contacto (con seguridad CSRF)
 ├── css/
-│   └── style.css       → Estilos
+│   ├── style.css       → Estilos principales y diseño responsive
+│   └── admin.css       → Estilos del panel administrativo
 ├── js/
-│   └── validacion.js   → Validación del formulario
+│   └── validacion.js   → Validación y envío del formulario
 └── php/
-    ├── config.php          → Configuración de BD
-    ├── setup.sql           → Script para crear BD y tabla
-    ├── ver_contactos.php   → Muestra registros (SELECT)
-    └── insertar.php        → Inserta nuevos registros (INSERT)
+├── config.php          → Configuración de BD
+├── setup.sql           → Script para crear BD y tabla
+├── ver_contactos.php   → Muestra registros con estadísticas
+├── insertar.php        → Inserta nuevos registros
+├── login.php           → Panel de administración
+└── logout.php          → Cierre de sesión
 ```
 
-## 🌐 Sitio web publicado
+## Sitio web publicado
 
 - **Página principal:** https://la-salle-contacto.infinityfreeapp.com/index.html
-- **Formulario de contacto:** https://la-salle-contacto.infinityfreeapp.com/contacto.html
+- **Formulario de contacto:** https://la-salle-contacto.infinityfreeapp.com/contacto.php
 - **Ver contactos registrados:** https://la-salle-contacto.infinityfreeapp.com/php/ver_contactos.php
+- **Panel admin:** https://la-salle-contacto.infinityfreeapp.com/php/login.php
 
 ## Cambios realizados
 
 ### Commit 1 - Conexión formulario con backend PHP
 
-- Se modificó `js/validacion.js` para enviar los datos del
-  formulario al servidor usando `fetch` en lugar de solo
-  mostrar un mensaje visual.
-- Se modificó `php/insertar.php` para responder en formato
-  JSON cuando recibe una petición desde el formulario.
-- Ahora los datos del formulario se guardan correctamente
-  en la base de datos.
+- Se modificó `js/validacion.js` para enviar los datos al servidor usando `fetch`.
+- Se modificó `php/insertar.php` para responder en formato JSON.
+- Los datos del formulario ahora se guardan correctamente en la base de datos.
 
-### Commit 2 - Actualización de configuración - Mejora de página ver_contactos
+### Commit 2 - Actualización de configuración y mejora de ver_contactos
 
-- Se actualizó `php/config.php` con los datos de la nueva
-  base de datos en InfinityFree.
-- Se mejoró el diseño de `php/ver_contactos.php` agregando
-  estadísticas por categoría, badges de colores y mejor
-  presentación de los datos.
+- Se actualizó `php/config.php` con los datos de la nueva base de datos.
+- Se mejoró el diseño de `php/ver_contactos.php` con estadísticas y badges de colores.
 
----
+### Commit 3 - Ajustes de estilos, títulos y datos de contacto
+
+- Se ajustó el título de la página principal.
+- Se actualizaron los datos de contacto.
+- Se mejoró el CSS con diseño responsive para móviles.
+
+### Commit 4 - Panel de administración y seguridad
+
+- Se agregó `contacto.php` con protección CSRF.
+- Se agregó panel admin con `php/login.php` y `php/logout.php`.
+- Se agregó `.gitignore` para proteger archivos sensibles.
+- Se agregó `css/admin.css` con estilos del panel administrativo.
 
 ## Tecnologías utilizadas
 
 - HTML5, CSS3, JavaScript (vanilla)
 - PHP 8 + MySQLi
-- MySQL (via XAMPP)
-- Netlify / GitHub Pages (despliegue)
-- GitHub
+- MySQL (InfinityFree)
+- GitHub (control de versiones)
