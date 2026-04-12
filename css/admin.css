@@ -1,0 +1,213 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    Segoe UI,
+    sans-serif;
+  background: #f0f2f5;
+  color: #333;
+}
+
+header {
+  background: #003087;
+  color: white;
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  font-size: 1.3rem;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+header a:hover {
+  opacity: 1;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.stats {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.2rem 1.8rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+}
+
+.stat-card .number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #003087;
+}
+
+.stat-card .label {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 0.2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.card-header h2 {
+  font-size: 1.1rem;
+  color: #003087;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.55rem 1.3rem;
+  background: #003087;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #00256b;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  background: #f8f9fb;
+  color: #555;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.9rem 1.2rem;
+  text-align: left;
+  border-bottom: 2px solid #eee;
+}
+
+tbody td {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.95rem;
+  vertical-align: top;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+tbody tr:hover {
+  background: #fafbff;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge-admisiones {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+.badge-becas {
+  background: #dcfce7;
+  color: #15803d;
+}
+.badge-academico {
+  background: #fef9c3;
+  color: #854d0e;
+}
+.badge-otro {
+  background: #f3e8ff;
+  color: #7e22ce;
+}
+
+.mensaje-preview {
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.fecha {
+  font-size: 0.85rem;
+  color: #888;
+  white-space: nowrap;
+}
+
+.empty {
+  text-align: center;
+  padding: 3rem;
+  color: #aaa;
+}
+
+.empty p {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 700px) {
+  .stats {
+    flex-direction: column;
+  }
+  thead {
+    display: none;
+  }
+  tbody td {
+    display: block;
+    padding: 0.4rem 1rem;
+  }
+  tbody td::before {
+    content: attr(data-label) ": ";
+    font-weight: 600;
+    color: #555;
+  }
+  tbody tr {
+    border-bottom: 2px solid #eee;
+    display: block;
+    padding: 0.5rem 0;
+  }
+}
