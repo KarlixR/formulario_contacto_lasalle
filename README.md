@@ -35,6 +35,14 @@ formulario_contacto_lasalle/
 - Ahora los datos del formulario se guardan correctamente
   en la base de datos.
 
+### Commit 2 - Actualización de configuración - Mejora de página ver_contactos
+
+- Se actualizó `php/config.php` con los datos de la nueva
+  base de datos en InfinityFree.
+- Se mejoró el diseño de `php/ver_contactos.php` agregando
+  estadísticas por categoría, badges de colores y mejor
+  presentación de los datos.
+
 ---
 
 ## Tecnologías utilizadas
