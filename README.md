@@ -20,6 +20,10 @@ formulario_contacto_lasalle/
 └── logout.php          → Cierre de sesión
 ```
 
+## Link de GitHub
+
+- https://github.com/KarlixR/formulario_contacto_lasalle
+
 ## Sitio web publicado
 
 - **Página principal:** https://la-salle-contacto.infinityfreeapp.com/index.html
