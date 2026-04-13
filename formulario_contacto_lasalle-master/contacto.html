@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>U La Salle - Contacto</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">🎓 Universidad La Salle</div>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="contacto.html" class="active">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>Formulario de Contacto</h2>
+      <p>¿Tienes alguna pregunta? Escríbenos y te responderemos a la brevedad.</p>
+
+      <form id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="nombre">Nombre completo *</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required />
+          <span class="error" id="err-nombre"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Correo electrónico *</label>
+          <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required />
+          <span class="error" id="err-email"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="+57 300 000 0000" />
+        </div>
+
+        <div class="form-group">
+          <label for="asunto">Asunto *</label>
+          <select id="asunto" name="asunto" required>
+            <option value="">-- Selecciona un asunto --</option>
+            <option value="admisiones">Admisiones</option>
+            <option value="becas">Becas y financiamiento</option>
+            <option value="academico">Información académica</option>
+            <option value="otro">Otro</option>
+          </select>
+          <span class="error" id="err-asunto"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="mensaje">Mensaje *</label>
+          <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+          <span class="error" id="err-mensaje"></span>
+        </div>
+
+        <button type="submit" class="btn">Enviar mensaje</button>
+      </form>
+
+      <div id="successMsg" class="success-msg" style="display:none;">
+        ✅ ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo muy pronto.
+      </div>
+    </section>
+
+    <section class="info-contacto">
+      <h3>Información de contacto</h3>
+      <ul>
+        <li>📍 Carrera 2 # 10-70, Bogotá, Colombia</li>
+        <li>📞 (601) 348 8000</li>
+        <li>✉️ info@lasalle.edu.co</li>
+        <li>🕐 Lunes a Viernes: 8:00 am - 5:00 pm, Sabado 8 a 12 m</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Universidad La Salle. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/validacion.js"></script>
+</body>
+</html>
