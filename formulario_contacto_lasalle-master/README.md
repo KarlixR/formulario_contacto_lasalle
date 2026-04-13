@@ -53,6 +53,13 @@ formulario_contacto_lasalle/
 - Se agregó `.gitignore` para proteger archivos sensibles.
 - Se agregó `css/admin.css` con estilos del panel administrativo.
 
+### Commit 5 - Preparación para Producción / Despliegue 
+- feat es para cuando el usuario ve algo nuevo (un formulario, un botón).
+
+- chore es para el "trabajo detrás de escena" (actualizar el .gitignore, cambiar una ruta en la base de datos, organizar carpetas).
+
+- Con este commit, tu historial de GitHub se verá muy limpio
+
 ## Tecnologías utilizadas
 
 - HTML5, CSS3, JavaScript (vanilla)
