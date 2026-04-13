@@ -37,7 +37,7 @@ formulario_contacto_lasalle/
 
 ### Commit 2 - Actualización de configuración y mejora de ver_contactos
 
-- Se actualizó `php/config.php` con los datos de la nueva base de datos.
+- Se actualizó `php/config.php` con los datos de la nueva base de datos en InfinityFree.
 - Se mejoró el diseño de `php/ver_contactos.php` con estadísticas y badges de colores.
 
 ### Commit 3 - Ajustes de estilos, títulos y datos de contacto
@@ -52,6 +52,12 @@ formulario_contacto_lasalle/
 - Se agregó panel admin con `php/login.php` y `php/logout.php`.
 - Se agregó `.gitignore` para proteger archivos sensibles.
 - Se agregó `css/admin.css` con estilos del panel administrativo.
+
+### Commit 5 - Documentación final
+
+- Se actualizó el README con la descripción completa de todos los cambios realizados por el equipo.
+- Se agregaron los links del sitio publicado.
+- Se documentó la estructura final del proyecto.
 
 ## Tecnologías utilizadas
 
